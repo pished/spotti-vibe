@@ -1,0 +1,9 @@
+2020/07/12 17:53:57 Pinged webpage.
+2020/07/12 17:53:57 POST /api/token HTTP/1.1
+Host: accounts.spotify.com
+Authorization: Basic ODc1ZTAyMmYzMjk2NGFkODk2ODg0ZDI4OWI1MjI5MTQ6ZjA0Yjg3ZjFkMjg3NDg2ZThiZDViZGM0ZDEwZWEzODQ=
+Content-Type: application/x-www-form-urlencoded
+
+code=AQB9NAMWJzkc__nUBPxQgblZX8ZqQljkPdug4O7jkt5eoSJFIBbPRAPsa0BqMh0JwhklaeyPjBzlwmcEMu9dEGL5kAu9zqf_Fy5JAEt8lsWvBICTO9U3pUGT84YSFU_it9ZCDvqnYKP_oASF9sMGH5JVot0HxWk8yqkG7SkV6fo3PxGSN_RlXVrmd33Nzppihf5B9Uqwn4EU25-MT9FqCRsTs7omydne-TvERVl1nf6LHM8rP7Dzf1FHRtHqu9YfdzBVJiAR_r83xQ&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080
+2020/07/12 17:53:57 Pinged webpage.
+2020/07/12 17:53:57 User denied access to Spotify!
