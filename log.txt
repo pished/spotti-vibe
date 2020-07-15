@@ -1,9 +1,9 @@
-2020/07/12 17:53:57 Pinged webpage.
-2020/07/12 17:53:57 POST /api/token HTTP/1.1
+2020/07/14 20:33:26 Pinged webpage.
+2020/07/14 20:33:26 POST /api/token HTTP/1.1
 Host: accounts.spotify.com
 Authorization: Basic ODc1ZTAyMmYzMjk2NGFkODk2ODg0ZDI4OWI1MjI5MTQ6ZjA0Yjg3ZjFkMjg3NDg2ZThiZDViZGM0ZDEwZWEzODQ=
 Content-Type: application/x-www-form-urlencoded
 
-code=AQB9NAMWJzkc__nUBPxQgblZX8ZqQljkPdug4O7jkt5eoSJFIBbPRAPsa0BqMh0JwhklaeyPjBzlwmcEMu9dEGL5kAu9zqf_Fy5JAEt8lsWvBICTO9U3pUGT84YSFU_it9ZCDvqnYKP_oASF9sMGH5JVot0HxWk8yqkG7SkV6fo3PxGSN_RlXVrmd33Nzppihf5B9Uqwn4EU25-MT9FqCRsTs7omydne-TvERVl1nf6LHM8rP7Dzf1FHRtHqu9YfdzBVJiAR_r83xQ&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080
-2020/07/12 17:53:57 Pinged webpage.
-2020/07/12 17:53:57 User denied access to Spotify!
+code=AQAm3TiwUX2xS2mIDYPZns9etYHBxrV6vEtOyP4RgCBcg3rpD39khFCL_8og6bwe5KfUtvvvtixA_he7LE5TaJOl6fOR0bPGTkDj04pnfMY694jvhgxYsO7OrZm_ijTimBJVjm5UdSB31KA3WYrrF25cI_N0guUKvd_jp12aSej_2R7HfGyj2kXxazp8P_Dg0pI48rNYWPDN4OjbnLSLznuFOwelxc_fdlm1u44hl51MLzxZ4O1d45XkCUU2ocJmtyrvQQCWRX5cxQ&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080
+2020/07/14 20:33:26 {Access_token:BQDjoyWlcQxwhsm3LfCDcd0nHc76HLBGW9GgZW7eJd5mWCHSOsDtRa8ZaX5PpLwNHUk5LdBKymMF0ZICb8HI6BbBbc27Shnu5v3Ua0b-aEDnQupAwHl5OoETI8VcAzEUtu1gDd7u9LzRSG-PG0WD5g3jxJa5nyda Token_type:Bearer Expires_in:3600 Refresh_token:AQBsQwi_XAdZ0RDc-OZALGtacapChpgrQ_SLh5vRyES6gHnMddjkMH7B5Jt9APbxmXXCpslfcA1uVFNgv9falWvuSZuOIP8BvewpEZ9oSk_4WtxVmWPebTqhxz9OR-YuADQ Scope:playlist-read-private playlist-read-collaborative user-read-currently-playing}
+2020/07/14 20:33:26 After server

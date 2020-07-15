@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
@@ -16,13 +17,14 @@ import (
 )
 
 var BearToken, RefreshToken string
+var server *http.Server
 
 type Tokens struct {
-	access_token  string
-	token_type    string
-	expires_in    int
-	refresh_token string
-	scope         string
+	Access_token  string
+	Token_type    string
+	Expires_in    int
+	Refresh_token string
+	Scope         string
 }
 
 func check(e error) {
@@ -84,12 +86,13 @@ func handleRoot(w http.ResponseWriter, r *http.Request) {
 		check(err)
 		defer resp.Body.Close()
 		var tokens Tokens
-		json.NewDecoder(resp.Body).Decode(&tokens)
-		BearToken = tokens.access_token
-		RefreshToken = tokens.refresh_token
+		err = json.NewDecoder(resp.Body).Decode(&tokens)
+		check(err)
+		log.Printf("%+v\n", tokens)
 	} else {
 		log.Printf("User denied access to Spotify!")
 	}
+	server.Shutdown(context.Background())
 }
 
 func main() {
@@ -112,6 +115,10 @@ func main() {
 
 	openbrowser(initURL)
 
+	server = &http.Server{Addr: ":8080"}
 	http.HandleFunc("/", handleRoot)
-	http.ListenAndServe(":8080", nil)
+	server.ListenAndServe()
+	// Setup signal Capture
+
+	log.Printf("After server")
 }
