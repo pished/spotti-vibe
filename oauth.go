@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httputil"
@@ -90,10 +91,18 @@ func handleRoot(w http.ResponseWriter, r *http.Request) {
 		err = json.NewDecoder(resp.Body).Decode(&tokens)
 		check(err)
 		log.Printf("%+v\n", tokens)
+		err = ioutil.WriteFile("refresh.key", []byte(tokens.Refresh_token), 0644)
+		check(err)
 	} else {
 		log.Printf("User denied access to Spotify!")
 	}
 	server.Shutdown(context.Background())
+}
+
+func RefreshSpotify() {
+	oldRefresh, err := ioutil.ReadFile("refresh.key")
+	check(err)
+
 }
 
 func AuthenticateSpotify() {
@@ -102,22 +111,26 @@ func AuthenticateSpotify() {
 	defer f.Close()
 
 	log.SetOutput(io.MultiWriter(f, os.Stdout))
+	if _, err := os.Stat("refresh.key"); err == nil {
+		// REFRESH TOKEN
+		RefreshSpotify()
+		log.Printf("Refreshing Token...")
+	} else {
+		redirect := url.QueryEscape("http://localhost:8080")
+		scopes := url.QueryEscape("playlist-read-collaborative playlist-read-private user-read-currently-playing")
+		initURL := fmt.Sprintf(
+			"https://accounts.spotify.com/authorize?client_id=%v&response_type=code&redirect_uri=%v&scope=%v&state=testing",
+			spotID,
+			redirect,
+			scopes,
+		)
 
-	redirect := url.QueryEscape("http://localhost:8080")
-	scopes := url.QueryEscape("playlist-read-collaborative playlist-read-private user-read-currently-playing")
-	initURL := fmt.Sprintf(
-		"https://accounts.spotify.com/authorize?client_id=%v&response_type=code&redirect_uri=%v&scope=%v&state=testing",
-		spotID,
-		redirect,
-		scopes,
-	)
+		openbrowser(initURL)
 
-	openbrowser(initURL)
-
-	server = &http.Server{Addr: ":8080"}
-	http.HandleFunc("/", handleRoot)
-	server.ListenAndServe()
-	// Setup signal Capture
+		server = &http.Server{Addr: ":8080"}
+		http.HandleFunc("/", handleRoot)
+		server.ListenAndServe()
+	}
 
 	log.Printf("After server")
 }
